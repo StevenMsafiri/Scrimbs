@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    background-color: lightgrey;
+}
+
+.menu {
+    background-color: #6943ff;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+input{
+    height: 50px;
+    width: 70px;
+    padding: 4px 0;
+    background-color: #6943ff;
+    border: 2px solid gray;
+    color: white;
+    font-size: 45px;
+    font-weight: bolder;
+    text-align: center;
+    border-radius: 4px;
+}
+
+button{
+    
+    border: none;
+    padding: 10px 12px;
+    font-size: small;
+}
+
+#conversions {
+    width: 90%;
+    margin: 25px auto;
+
+
+}
+
+#mass, #length, #volume
+{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 20px black;
+    
+}
+
+h3 {
+    color: #6943ff;
+}
