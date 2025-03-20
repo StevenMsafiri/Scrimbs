@@ -2,6 +2,9 @@ const modal = document.getElementById('modal')
 const modalCloseBtn = document.getElementById('modal-close-btn')
 const consentForm = document.getElementById('consent-form')
 const modalText = document.getElementById('modal-text')
+const declineBtn = document.getElementById('decline-btn')
+
+const modalBtns = document.getElementById('modal-choice-btns')
 
 setTimeout(function(){
     modal.style.display = 'inline'
@@ -11,22 +14,27 @@ modalCloseBtn.addEventListener('click', function(){
     modal.style.display = 'none'
 })
 
+declineBtn.addEventListener('mouseenter', function(){
+    modalBtns.classList.toggle('reverse')
+})
+
+
+/*   
+Challenge: 
+1. Take control of the div holding the buttons.
+2. In index.css, set up a selector for a new class
+   that uses flex-direction to reverse the order 
+   of its child elements.
+3. Toggle that class on the div holding the buttons 
+   when a user's cursor hovers over the decline button.
+*/ 
+
+
 consentForm.addEventListener('submit', function(e){
     e.preventDefault()
     
     const consentFormData = new FormData(consentForm)
-    console.log(consentFormData)
-
-/*   
-Challenge: 
-1. Create a const to store the user's name and
-   use a FormData method to extract the 
-   submitted name from the FormData object.
-2. Insert the user's name into the HTML string
-   that contains the final message we show our
-   users.
-*/ 
-    
+    const fullName = consentFormData.get('fullName')
     
     modalText.innerHTML = `
     <div class="modal-inner-loading">
@@ -42,12 +50,13 @@ Challenge:
     
     setTimeout(function(){
         document.getElementById('modal-inner').innerHTML = `
-        <h2>Thanks <span class="modal-display-name">NAME</span>, you sucker! </h2>
+        <h2>Thanks <span class="modal-display-name">${fullName}</span>, you sucker! </h2>
         <p>We just sold the rights to your eternal soul.</p>
         <div class="idiot-gif">
             <img src="images/pirate.gif">
         </div>
     `
+    modalCloseBtn.disabled = false
     }, 3000)
   
 }) 
